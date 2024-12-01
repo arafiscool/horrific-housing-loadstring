@@ -1,1 +1,202 @@
 
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local TextButton_3 = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local TextButton_4 = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.257768363, 0, 0.190322578, 0)
+Frame.Size = UDim2.new(0, 685, 0, 383)
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.0452554747, 0, 0.214099213, 0)
+TextButton.Size = UDim2.new(0, 112, 0, 40)
+TextButton.Font = Enum.Font.FredokaOne
+TextButton.Text = "Shine 1"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+
+UICorner.Parent = TextButton
+
+UICorner_2.Parent = Frame
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 685, 0, 50)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.Text = "Horrific Housing"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 68.000
+
+UICorner_3.Parent = TextLabel
+
+TextButton_2.Parent = Frame
+TextButton_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(0.0452554747, 0, 0.394255877, 0)
+TextButton_2.Size = UDim2.new(0, 112, 0, 40)
+TextButton_2.Font = Enum.Font.FredokaOne
+TextButton_2.Text = "Shine 2"
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 14.000
+
+UICorner_4.Parent = TextButton_2
+
+TextButton_3.Parent = Frame
+TextButton_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.BorderSizePixel = 0
+TextButton_3.Position = UDim2.new(0.0452554747, 0, 0.595300257, 0)
+TextButton_3.Size = UDim2.new(0, 112, 0, 40)
+TextButton_3.Font = Enum.Font.FredokaOne
+TextButton_3.Text = "Shine 3"
+TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.TextSize = 14.000
+
+UICorner_5.Parent = TextButton_3
+
+TextButton_4.Parent = Frame
+TextButton_4.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextButton_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_4.BorderSizePixel = 0
+TextButton_4.Position = UDim2.new(0.0452554747, 0, 0.819843352, 0)
+TextButton_4.Size = UDim2.new(0, 112, 0, 40)
+TextButton_4.Font = Enum.Font.FredokaOne
+TextButton_4.Text = "Secret Room"
+TextButton_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_4.TextSize = 14.000
+
+UICorner_6.Parent = TextButton_4
+
+local function ZDLRW_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	local UserInputService = game:GetService("UserInputService")
+	local frame = script.Parent
+	
+	local dragging = false
+	local startPos
+	
+	UserInputService.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			if frame:IsDescendantOf(game.Players.LocalPlayer:GetMouse().Target) then
+				dragging = true
+				startPos = input.Position
+			end
+		end
+	end)
+	
+	UserInputService.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = false
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement then
+			if dragging then
+				local delta = input.Position - startPos
+				frame.Position = UDim2.new(frame.Position.X.Scale, frame.Position.X.Offset + delta.X, frame.Position.Y.Scale, frame.Position.Y.Offset + delta.Y)
+				startPos = input.Position
+			end
+		end
+	end)
+	
+end
+coroutine.wrap(ZDLRW_fake_script)()
+local function FKOXCGH_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local button = script.Parent
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild("Humanoid")
+	local tweenService = game:GetService("TweenService")
+	
+	button.MouseButton1Click:Connect(function()
+		local targetPosition = Vector3.new(5, -14, -44) 
+		local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) 
+		local goal = {Position = targetPosition}
+		local tween = tweenService:Create(humanoid.RootPart, tweenInfo, goal)
+		tween:Play()
+	end)
+	
+end
+coroutine.wrap(FKOXCGH_fake_script)()
+local function KFTGIR_fake_script() -- TextButton_2.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_2)
+
+	local button = script.Parent
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild("Humanoid")
+	local tweenService = game:GetService("TweenService")
+	
+	button.MouseButton1Click:Connect(function()
+		local targetPosition = Vector3.new(298, 37, -260) -- Replace with your desired position
+		local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+		local goal = {Position = targetPosition}
+		local tween = tweenService:Create(humanoid.RootPart, tweenInfo, goal)
+		tween:Play()
+	end)
+	
+end
+coroutine.wrap(KFTGIR_fake_script)()
+local function ZLILX_fake_script() -- TextButton_3.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_3)
+
+	local button = script.Parent
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild("Humanoid")
+	local tweenService = game:GetService("TweenService")
+	
+	button.MouseButton1Click:Connect(function()
+		local targetPosition = Vector3.new(-118, 46, -252)
+		local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+		local tween = tweenService:Create(humanoid.RootPart, tweenInfo, goal)
+		tween:Play()
+	end)
+	
+end
+coroutine.wrap(ZLILX_fake_script)()
+local function SODFG_fake_script() -- TextButton_4.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_4)
+
+	local button = script.Parent
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild("Humanoid")
+	local tweenService = game:GetService("TweenService")
+	
+	button.MouseButton1Click:Connect(function()
+		local targetPosition = Vector3.new(-2, -13, -17)
+		local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) 
+		local goal = {Position = targetPosition}
+		local tween = tweenService:Create(humanoid.RootPart, tweenInfo, goal)
+		tween:Play()
+	end)
+	
+end
+coroutine.wrap(SODFG_fake_script)()
